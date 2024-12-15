@@ -41,7 +41,7 @@ const About = () => {
   it’s my passion.
 </p>
 
-<p className="text-lg leading-relaxed text-center font-semibold text-yellow-400">
+<p className="text-lg leading-relaxed text-center font-semibold text-yellow-400 mb-4">
   Let’s bring your vision to life. Together, we’ll build something remarkable!
 </p>
 
