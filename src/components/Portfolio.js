@@ -29,7 +29,7 @@ const Portfolio = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-900 px-6">
       <div className="text-white w-full max-w-6xl">
         {/* Title */}
-        <h2 className="text-center text-4xl font-bold mb-8 text-gray-100">
+        <h2 className="text-4xl font-bold text-white mb-6 text-center hover:underline hover:text-yellow-500 transition duration-300 mt-6 mb-4 cursor-pointer">
           Portfolio
         </h2>
 

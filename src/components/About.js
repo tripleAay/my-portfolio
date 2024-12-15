@@ -5,13 +5,13 @@ const About = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-900 px-6">
     <div className="max-w-4xl mx-auto text-gray-300">
       {/* About Me Header */}
-      <h2 className="text-4xl font-bold text-white mb-6 text-center hover:underline hover:text-yellow-500 transition duration-300">
+      <h2 className="text-4xl font-bold text-white mb-6 text-center hover:underline hover:text-yellow-500 transition cursor-pointer duration-300">
         About Me
       </h2>
 
       {/* Content */}
       <p className="text-lg leading-relaxed mb-6">
-  Hi, I’m <span className="font-semibold text-yellow-500">Adedokun Adeshina Idris</span>, a passionate{" "}
+  Hi, I’m <span className="font-semibold text-yellow-500">Adedokun</span>, a passionate{" "}
   <span className="font-semibold text-white">Full-Stack Web Developer</span> and{" "}
   <span className="font-semibold text-white">Brand Designer</span> with over{" "}
   <span className="font-semibold text-yellow-500">10 years of experience</span> crafting innovative, user-centric
@@ -32,9 +32,7 @@ const About = () => {
   <li>
     Purpose-driven <span className="text-yellow-400">brand design</span>, from logos to complete visual identities.
   </li>
-  <li>
-    Scalable <span className="text-yellow-400">fintech and automotive solutions</span> tailored to global standards.
-  </li>
+  
 </ul>
 
 <p className="text-lg leading-relaxed mb-6">
