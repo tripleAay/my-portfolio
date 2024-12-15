@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Social Links */}
         <div className="flex space-x-4">
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/tripleaay?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-yellow-500 transition duration-300"
@@ -34,7 +34,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://github.com/"
+            href="https://github.com/tripleAay"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-yellow-500 transition duration-300"

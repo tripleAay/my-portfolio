@@ -5,6 +5,7 @@ import picA from '../assets/images/pic a.png'
 import picB from '../assets/images/pic b.png'
 
 
+
 const Heroe = () => {
     return (
 
@@ -33,29 +34,30 @@ const Heroe = () => {
                     
                     {/* Social Icons */}
                     <div className="absolute top-1/2 right-6 transform -translate-y-1/2 space-y-4 text-lg">
+                        
                         <a
-                            href="#"
-                            className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition duration-300"
-                        >
-                            <i className="fab fa-facebook-f"></i>
-                        </a>
-                        <a
-                            href="#"
+                            href="https://x.com/Aaytriple"
                             className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition duration-300"
                         >
                             <i className="fab fa-twitter"></i>
                         </a>
                         <a
-                            href="#"
+                            href="https://www.linkedin.com/in/tripleaay?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                             className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition duration-300"
                         >
                             <i className="fab fa-linkedin-in"></i>
                         </a>
                         <a
-                            href="#"
+                            href="https://wa.me/2349167740076"
                             className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition duration-300"
                         >
                             <i className="fab fa-whatsapp"></i>
+                        </a>
+                        <a
+                            href="tel:+2349167740076"
+                            className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition duration-300"
+                        >
+                            <i className="fa-solid fa-phone"></i>
                         </a>
                     </div>
                 </div>
