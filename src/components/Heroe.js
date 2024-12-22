@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faTwitter, faLinkedinIn, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import picA from '../assets/images/pic a.png'
 import picB from '../assets/images/pic b.png'
+import {ThemeContext} from "../context/ThemeContext"
 
 
 
 const Heroe = () => {
+    const {lightMode} = useContext(ThemeContext)
     return (
 
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 px-6">
-            <div className="max-w-5xl w-full flex flex-col lg:flex-row items-center  text-white rounded-lg overflow-hidden ">
+        <div className={`min-h-screen flex items-center justify-center px-6 transition-all duration-300 ease-in-out  ${lightMode? "bg-gray-900":"bg-[#F6F4F3] shadow-md" }`}>
+            <div className={`max-w-5xl w-full flex flex-col lg:flex-row items-center rounded-lg overflow-hidden transition-all duration-300 ease-in-out  ${lightMode? "text-white":"text-black"}`}>
                 {/* Text Section */}
                 <div className="flex-1 p-6 lg:p-12">
                     <h1 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -19,7 +21,8 @@ const Heroe = () => {
                     <p className="text-lg sm:text-xl font-light mb-6">
                     Full-Stack Web Developer & Brand Designer
                     </p>
-                    <button className="bg-transparent border border-yellow-400 text-yellow-400 px-6 py-2 rounded-md text-sm hover:bg-yellow-400 hover:text-gray-900 transition duration-300">
+                    <button className={`bg-transparent border  px-6 py-2 rounded-md text-sm 
+                         transition-all duration-300 ease-in-out  ${lightMode? "border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-gray-900":"border-yellow-400 text-yellow-400 bg-gray-900 hover:bg-yellow-400 hover:text-gray-900"}`}>
                         Contact Me
                     </button>
                 </div>

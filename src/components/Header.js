@@ -1,51 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+import {ThemeContext} from "../context/ThemeContext";
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Toggle dark mode
-  const handleThemeToggle = () => {
-    setDarkMode(!darkMode);
-    localStorage.setItem("theme", !darkMode ? "dark" : "light");
-  };
+  const {lightMode, toggleTheme} = useContext(ThemeContext);
 
-  // Initialize dark mode based on localStorage
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setDarkMode(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
+  
   // Toggle mobile menu
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
-    <div className={`bg-gray-800 text-white dark:bg-gray-900 transition-all`}>
+    <div
+  className={`transition-all duration-300 ease-in-out ${
+    lightMode
+      ? "bg-gray-800 text-white shadow-lg"
+      : "bg-[#FFFBFC] text-gray-800 shadow-md"
+  }`}
+>
+
       <header className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
-        <h1 className="text-xl font-bold">Shina Adedokun</h1>
+        <h1 className={`text-xl font-bold ${lightMode?"":"text-yellow-400"}`}>Shina Adedokun</h1>
 
         {/* Navigation Links (Desktop) */}
-        <nav className="hidden md:flex space-x-6">
-          <a href="#about" className="text-gray-300 hover:text-white">
+        <nav className={` hidden md:flex space-x-6 `} >
+          <a href="#about" className={`transition-all ${lightMode? "text-gray-300 hover:text-white":"text-gray-800 "} `}>
             About
           </a>
-          <a href="#portfolio" className="text-gray-300 hover:text-white">
+          <a href="#portfolio" className={`transition-all ${lightMode? "text-gray-300 hover:text-white":"text-gray-800 "} `}> 
             Portfolio
           </a>
-          <a href="#contact" className="text-gray-300 hover:text-white">
+          <a href="#contact" className={`transition-all ${lightMode? "text-gray-300 hover:text-white":"text-gray-800 "} `}>
             Contact
           </a>
         </nav>
@@ -65,10 +55,10 @@ const Header = () => {
           </div>
           {/* Dark Mode Toggle */}
           <button
-            onClick={handleThemeToggle}
+            onClick={toggleTheme}
             className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 dark:bg-gray-800 focus:outline-none"
           >
-            {darkMode ? "🌙" : "☀️"}
+            {lightMode ? "🌙" : "☀️"}
           </button>
         </div>
 
