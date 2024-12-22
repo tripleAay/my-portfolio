@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import {ThemeContext} from "../context/ThemeContext"; 
+import { FiExternalLink, FiSearch } from "react-icons/fi";
 
 const Portfolio = () => {
+  const {lightMode} = useContext(ThemeContext);
   const initialTiles = [
-    { id: 1, image: "https://via.placeholder.com/300x300", alt: "Image 1" },
-    { id: 2, image: "https://via.placeholder.com/300x300", alt: "Image 2" },
-    { id: 3, image: "https://via.placeholder.com/300x300", alt: "Image 3" },
-    { id: 4, image: "https://via.placeholder.com/300x300", alt: "Image 4" },
-    { id: 5, image: "https://via.placeholder.com/300x300", alt: "Image 5" },
-    { id: 6, image: "https://via.placeholder.com/300x300", alt: "Image 6" },
+    { id: 1, image: "https://via.placeholder.com/300x300", alt: "Image 1", link: "#"  },
+    { id: 2, image: "https://via.placeholder.com/300x300", alt: "Image 2", link: "#"  },
+    { id: 3, image: "https://via.placeholder.com/300x300", alt: "Image 3", link: "#"  },
+    { id: 4, image: "https://via.placeholder.com/300x300", alt: "Image 4", link: "#"  },
+    { id: 5, image: "https://via.placeholder.com/300x300", alt: "Image 5", link: "#"  },
+    { id: 6, image: "https://via.placeholder.com/300x300", alt: "Image 6", link: "#" },
   ];
 
   const moreTiles = [
-    { id: 7, image: "https://via.placeholder.com/300x300", alt: "Image 7" },
-    { id: 8, image: "https://via.placeholder.com/300x300", alt: "Image 8" },
+    { id: 7, image: "https://via.placeholder.com/300x300", alt: "Image 7", link: "#"  },
+    { id: 8, image: "https://via.placeholder.com/300x300", alt: "Image 8", link: "#"  },
   ];
 
   const [tiles, setTiles] = useState(initialTiles);
   const [showMore, setShowMore] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleViewMore = () => {
     if (!showMore) {
@@ -25,11 +29,20 @@ const Portfolio = () => {
     }
   };
 
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 px-6">
+    <div className={`min-h-screen flex items-center justify-center  px-6 ${lightMode? "bg-gray-900":"bg-[#FFFBFC] "}`}>
       <div className="text-white w-full max-w-6xl">
         {/* Title */}
-        <h2 className="text-4xl font-bold text-white mb-6 text-center hover:underline hover:text-yellow-500 transition duration-300 mt-6 mb-4 cursor-pointer">
+        <h2 className={`transition-all duration-300 ease-in-out  text-4xl font-bold  mb-6 text-center hover:underline  
+        transition cursor-pointer duration-300 ${lightMode? "text-white hover:text-yellow-500":"text-gray-800 hover:text-gray-600"}`}>
           Portfolio
         </h2>
 
@@ -45,6 +58,24 @@ const Portfolio = () => {
                 alt={tile.alt}
                 className="w-full h-60 object-cover"
               />
+              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+              <button
+                onClick={() => handleImageClick(tile.image)}
+                className="p-3 bg-white text-gray-800 rounded-full shadow-md hover:bg-yellow-400 hover:text-gray-900 transition duration-300 mx-2"
+                title="View Full Image"
+              >
+                <FiSearch size={20} />
+              </button>
+              <a
+                href={tile.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white text-gray-800 rounded-full shadow-md hover:bg-yellow-400 hover:text-gray-900 transition duration-300 mx-2"
+                title="View Project"
+              >
+                <FiExternalLink size={20} />
+              </a>
+            </div>
               <div className="p-4 bg-gray-800 text-center group-hover:bg-yellow-400 transition duration-300">
                 <p className="font-semibold group-hover:text-gray-900">
                   Project {tile.id}
@@ -59,12 +90,26 @@ const Portfolio = () => {
           <div className="flex justify-center">
             <button
               onClick={handleViewMore}
-              className="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-semibold px-6 py-2 rounded-full transition duration-300 shadow-md hover:shadow-lg"
+              className="mb-6 bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-semibold px-6 py-2 rounded-full transition duration-300 shadow-md hover:shadow-lg"
             >
               View More
             </button>
           </div>
         )}
+        {/* modal */}
+        {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="relative">
+            <img src={selectedImage} alt="Full View" className="max-w-full max-h-full rounded-lg" />
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 bg-white text-gray-800 p-2 rounded-full shadow-md hover:bg-yellow-400 hover:text-gray-900 transition duration-300"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
       </div>
     </div>
   );

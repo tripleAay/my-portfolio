@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {ThemeContext} from "../context/ThemeContext"
 
 const SkillsSection = () => {
+  const {lightMode} = useContext(ThemeContext);
     const skills = [
         { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
         { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
@@ -12,10 +14,11 @@ const SkillsSection = () => {
         { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
       ];
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-900 px-6 ">
-        <h2 className="text-4xl font-bold text-white mb-6 text-center hover:underline hover:text-yellow-500 transition duration-300 cursor-pointer">My Skills</h2>
+    <section className={`min-h-screen flex flex-col items-center justify-center  px-6 ${lightMode? "bg-gray-900":"bg-[#FFFBFC]"}`}>
+        <h2 className={`transition-all duration-300 ease-in-out  text-4xl font-bold  mb-6 text-center hover:underline  
+        transition cursor-pointer duration-300 ${lightMode? "text-white hover:text-yellow-500":"text-gray-800 hover:text-gray-600"}`}>My Skills</h2>
     
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center justify-center">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center justify-center mb-6">
 
       {skills.map((skill, index) => (
         <div

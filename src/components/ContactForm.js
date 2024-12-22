@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import {ThemeContext} from "../context/ThemeContext";
 
 const ContactForm = () => {
+  const {lightMode} = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,10 +37,10 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 px-6">
-      <div className="max-w-4xl w-full bg-gray-800 rounded-lg shadow-lg p-8 text-white">
+    <div className={`min-h-screen  flex items-center justify-center  px-6 ${lightMode?"bg-gray-900":"bg-[#FFFBFC]"}`}>
+      <div className={`max-w-4xl mb-6 w-full rounded-lg shadow-lg p-8 text-white bg-gray-800 `}>
         {/* Header */}
-        <div className="text-center mb-6">
+        <div className={`text-center mb-6 `}>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-yellow-500">
             Contact Me
           </h2>
@@ -48,7 +50,7 @@ const ContactForm = () => {
         </div>
 
         {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className={`space-y-6 `}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Name */}
             <div>
