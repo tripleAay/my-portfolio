@@ -38,7 +38,7 @@ const Portfolio = () => {
   };
 
   return (
-    <div className={`min-h-screen flex items-center justify-center  px-6 ${lightMode? "bg-gray-900":"bg-[#FFFBFC] "}`}>
+    <div id="portfolio" className={`min-h-screen flex items-center justify-center  px-6 ${lightMode? "bg-gray-900":"bg-[#FFFBFC] "}`}>
       <div className="text-white w-full max-w-6xl">
         {/* Title */}
         <h2 className={`transition-all duration-300 ease-in-out  text-4xl font-bold  mb-6 text-center hover:underline  

@@ -4,7 +4,7 @@ import {ThemeContext} from "../context/ThemeContext";
 const About = () => {
   const {lightMode} = useContext(ThemeContext);
   return (
-    <div className={`transition-all duration-300 ease-in-out min-h-screen flex items-center justify-center px-6 ${lightMode? "bg-gray-900":"bg-{#FFFBFC}"} `}>
+    <div id="about" className={`transition-all duration-300 ease-in-out min-h-screen flex items-center justify-center px-6 ${lightMode? "bg-gray-900":"bg-{#FFFBFC}"} `}>
     <div className="max-w-4xl mx-auto text-gray-300">
       {/* About Me Header */}
       <h2 className={`transition-all duration-300 ease-in-out  text-4xl font-bold  mb-6 text-center hover:underline  

@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-
 import {ThemeContext} from "../context/ThemeContext";
+import About from "../components/About"
+import Portfolio from "../components/Portfolio"
+import ContactForm from "../components/ContactForm"
+
+
 
 const Header = () => {
   

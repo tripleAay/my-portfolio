@@ -37,11 +37,11 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={`min-h-screen  flex items-center justify-center  px-6 ${lightMode?"bg-gray-900":"bg-[#FFFBFC]"}`}>
+    <div id="contact" className={`min-h-screen  flex items-center justify-center  px-6 ${lightMode?"bg-gray-900":"bg-[#FFFBFC]"}`}>
       <div className={`max-w-4xl mb-6 w-full rounded-lg shadow-lg p-8 text-white bg-gray-800 `}>
         {/* Header */}
         <div className={`text-center mb-6 `}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-yellow-500">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-yellow-500 cursor-pointer ">
             Contact Me
           </h2>
           <p className="text-gray-400 text-lg">
